@@ -1,1 +1,1 @@
-# strivers-A2Z-DSA-COURSE-Sheet
+# Strivers-A2Z-DSA-COURSE-Sheet
