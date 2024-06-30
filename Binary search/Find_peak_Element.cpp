@@ -30,3 +30,5 @@ int findPeakElement(vector<int> &arr) {
         }
         return -1;
 }
+
+// NOTE:- it is partially accepted on code 360 
