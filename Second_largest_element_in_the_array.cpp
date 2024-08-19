@@ -3,18 +3,18 @@ public:
 	// Function returns the second
 	// largest elements
 	int print2largest(int arr[], int n) {
-	   int max1=arr[0];
-	   int max2=-1;
+	   int largest=arr[0];
+	   int s_largest=INT_MIN;
 	   for(int i=0;i<n;i++){
-	       if(max1<arr[i]){
-	           max1=arr[i];
+	       if(largest<arr[i]){
+	           largest=arr[i];
 	       }
 	   }
 	   for(int i=0;i<n;i++){
-	       if(max2<arr[i]&&arr[i]!=max1){
-	           max2=arr[i];
+	       if(s_largest<arr[i]&&arr[i]!=largest){
+	           s_largest=arr[i];
 	       }
 	   }
-	   return max2;
+	   return s_largest;
 	}
 };
