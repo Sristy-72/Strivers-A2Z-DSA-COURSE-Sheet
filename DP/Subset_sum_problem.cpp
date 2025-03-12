@@ -7,6 +7,8 @@
 
 class Solution {
   public:
+
+// MEMOIZATION
   bool solve(vector<int>&arr, int target, int ind, vector<vector<int>>&dp){
       if(target==0) return true;
       if(ind==0) return arr[0]==target;
