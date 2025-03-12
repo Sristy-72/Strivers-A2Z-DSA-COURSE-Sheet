@@ -6,25 +6,21 @@
 
 
 class Solution {
-public:
-    bool solve(int i, vector<int>& arr, vector<vector<int>>& dp, int target) {
-        if (target == 0) return true;  
-        if (i == 0) return arr[0] == target; 
-        
-        if (dp[i][target] != -1) return dp[i][target];
-
-        bool notTaken = solve(i - 1, arr, dp, target);
-        bool taken = false;
-        if (target >= arr[i]) {
-            taken = solve(i - 1, arr, dp, target - arr[i]); 
-        }
-        
-        return dp[i][target] = taken || notTaken;
-    }
-
+  public:
+  bool solve(vector<int>&arr, int target, int ind, vector<vector<int>>&dp){
+      if(target==0) return true;
+      if(ind==0) return arr[0]==target;
+      if(dp[ind][target]!=-1) return dp[ind][target];
+      bool notTaken=solve(arr,target,ind-1,dp);
+      bool Taken=false;
+      if(arr[ind]<=target){
+          Taken= solve(arr,target-arr[ind],ind-1,dp);
+      }
+      return dp[ind][target]= Taken||notTaken;
+  }
     bool isSubsetSum(vector<int>& arr, int target) {
-        int n = arr.size();
-        vector<vector<int>> dp(n, vector<int>(target + 1, -1)); 
-        return solve(n - 1, arr, dp, target);
+        int m= arr.size();
+        vector<vector<int>>dp(m,vector<int>(target+1,-1));
+        return solve(arr, target,m-1,dp);
     }
 };
