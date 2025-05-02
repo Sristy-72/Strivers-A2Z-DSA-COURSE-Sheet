@@ -29,11 +29,11 @@ string findLCS(int n, int m,string &s1, string &s2){
     int i=n;
     int j=m;
     int len= dp[i][j];
-   string str= "";
+   string str(len,'$');
    int index= len-1;
-  for (int k = 1; k <= len; k++) {
-    str += "$"; 
-  }
+  // for (int k = 1; k <= len; k++) {
+  //   str += "$"; 
+  // }
 
   while (i > 0 && j > 0) {
     if (s1[i - 1] == s2[j - 1]) {
