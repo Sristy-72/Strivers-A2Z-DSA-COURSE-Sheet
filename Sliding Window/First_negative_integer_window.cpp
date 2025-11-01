@@ -18,10 +18,10 @@ class Solution {
            if(!q.empty() && q.front()<=i-k){
                q.pop();
            }
-           if(i>=k-1){
+           if(i>=k-1){ // i ki value  k ya ke se barabar ho chuki hai
                
               if(!q.empty()) result.push_back(arr[q.front()]);
-              else result.push_back(0);
+              else result.push_back(0); // agar window size hit ho gaya phir bhi negative element nahi mila tab ye chalega
            }
        }
         return result;
