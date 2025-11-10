@@ -29,3 +29,44 @@ class Solution {
         return solve(height, n-1, dp);
     }
 };
+
+
+
+int minCost(vector<int>& height) {
+        // Code here
+        int n= height.size();
+        vector<int>dp(n,-1);
+
+  // TABULATION
+
+  
+    //      dp[0]=0;
+    //   // return solve(height, n-1, dp);
+       
+    //   for(int ind=1;ind<n;ind++){
+    //       int onestep= abs(height[ind]-height[ind-1])+dp[ind-1];
+    //       int twostep= INT_MAX;
+    //   if(ind>1){
+    //   twostep= abs(height[ind]-height[ind-2])+ dp[ind-2];
+    //   } 
+    //   dp[ind]= min(onestep, twostep);
+    //   }
+    //   return dp[n-1];
+    
+    // space-optimization
+    
+    int prev1= 0;
+    int prev2=0;
+    for(int i=1;i<n;i++){
+        int twostep= INT_MAX;
+        int onestep= abs(height[i-1]-height[i])+prev1;
+        if(i>1){
+            twostep= abs(height[i-2]-height[i]) +prev2;
+        }
+        int curr= min(onestep, twostep);
+        prev2=prev1;
+        prev1= curr;
+    }
+    return prev1;
+    }
+};
