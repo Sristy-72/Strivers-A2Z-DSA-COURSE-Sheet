@@ -10,6 +10,7 @@
 using namespace std;
 class Solution {
   public:
+//MEMOIZATION
   int solve (int ind , int k , vector<int>&height, vector<int>&dp){
      if(ind==0) return 0;
     int minsteps= INT_MAX;
@@ -26,8 +27,24 @@ class Solution {
     int minimizeCost(int k, vector<int>& arr) {
           int n = arr.size();
          vector<int>dp(n,-1);
-   return  solve(n-1,k,arr, dp);
-        // Code here
+        // return  solve(n-1,k,arr, dp);
+
+      // TABULATION
+      dp[0]=0;
+      
+      for(int i=1;i<n;i++){
+          int minsteps= INT_MAX;
+          for(int j=1;j<=k;j++){
+              if(i-j>=0){
+              int steps=dp[i-j]+ abs(arr[i]-arr[i-j]);
+              minsteps= min(steps, minsteps);
+              dp[i]= minsteps;
+              }
+          }  
+      }
+      return dp[n-1]
+      
+       
     }
 };
 
