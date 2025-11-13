@@ -43,8 +43,14 @@ class Solution {
           }  
       }
       return dp[n-1]
-      
+
+
+        
        
     }
 };
+
+
+// THIS QUESTION CANNOT BE SPACE OPTIMIZED 
+//Space optimization works only when the current state depends on a fixed number of previous states.
 
